@@ -1,34 +1,14 @@
-import styled from "styled-components";
-import { useCartStore } from "../store/cartStore";
-import CartProductCard from "../components/productCard/CartProductCard";
-import Button from "../components/ui/Button";
-
-const Container = styled.div`
-  display: flex;
-  width: 100vw;
-  justify-content: center;
-`;
-
-const ContentWrapper = styled.div`
-  display: flex;
-  gap: 50px;
-`;
-
-const Table = styled.div``;
-
-const TableRow = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const TableValue = styled.p`
-  width: 50px;
-`;
-
-const TableTag = styled.p`
-  font-weight: 600;
-`;
+import { useCartStore } from "../../store/cartStore";
+import CartProductCard from "../../components/productCard/CartProductCard";
+import {
+  Container,
+  ContentWrapper,
+  StyledButton,
+  Table,
+  TableRow,
+  TableTag,
+  TableValue,
+} from "./Cart.styles";
 
 export default function Cart() {
   const { cart, totalPrice } = useCartStore();
@@ -60,9 +40,7 @@ export default function Cart() {
             </TableRow>
           </Table>
 
-          <Button style={{ padding: 20, width: 250 }} $primary>
-            Checkout
-          </Button>
+          <StyledButton $primary>Checkout</StyledButton>
         </div>
       </ContentWrapper>
     </Container>
