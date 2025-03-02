@@ -1,7 +1,7 @@
 import ProductCard from "../../components/productCard/ShopProductCard";
-import { Suspense, use } from "react";
 import { Product } from "../../types/products";
 import { CategoryTitle, Container, ProductWrapper } from "./Home.styles";
+import useProducts from "../../hooks/useProducts";
 
 export default function Home() {
   return (
@@ -9,18 +9,22 @@ export default function Home() {
       <CategoryTitle>Popular products</CategoryTitle>
 
       <ProductWrapper>
-        <Suspense fallback={"Loading..."}>
-          <Products />
-        </Suspense>
+        <Products />
       </ProductWrapper>
     </Container>
   );
 }
 
-const productsPromise = fetch("/products.json").then((res) => res.json());
-
 function Products() {
-  const products = use(productsPromise) as Product[];
+  const { products, loading, error } = useProducts();
+
+  if (loading) {
+    return <p>Loading...</p>; // TODO: add loading design
+  }
+
+  if (error) {
+    return <p>Error</p>; // TODO: add error design
+  }
 
   return (
     <>

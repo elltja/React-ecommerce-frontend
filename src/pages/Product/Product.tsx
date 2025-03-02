@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
-import { useEffect, useState } from "react";
 import { type Product } from "../../types/products";
-
+import { useCartStore } from "../../store/cartStore";
+import useProducts from "../../hooks/useProducts";
 import {
   ButtonWrapper,
   Container,
@@ -17,25 +17,13 @@ import {
   Image,
   StyledButton,
 } from "./Product.styles";
-import { useCartStore } from "../../store/cartStore";
-
-async function testFetch(id: string) {
-  const products = await fetch("/products.json").then((res) => res.json());
-  return products.find((product: Product) => product.id === id);
-}
 
 export default function Product() {
-  const [product, setProduct] = useState<Product | null>(null);
   const params = useParams();
+  const { products } = useProducts(); // TODO: Add loading and error states
+  const product = products.find((p) => p.id === params.id); // TODO: Add functionality to fetch a product by id
   const addItem = useCartStore((state) => state.addItem);
-  useEffect(() => {
-    async function fetchData() {
-      if (!params.id) return;
-      const p = await testFetch(params.id);
-      setProduct(p);
-    }
-    fetchData();
-  }, [params]);
+
   return (
     <Container>
       <Image src={product?.imageURL} alt={`${product?.title} image`} />
