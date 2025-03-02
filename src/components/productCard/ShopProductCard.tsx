@@ -11,18 +11,24 @@ import {
   Price,
   Title,
 } from "./ProductCard.styles";
+import { useNavigate } from "react-router";
 
 export default function ProductCard({ product }: { product: Product }) {
   const addItem = useCartStore((state) => state.addItem);
+  const navigate = useNavigate();
+
+  function redirectToProductPage() {
+    navigate(`/product/${product.id}`);
+  }
 
   return (
     <Container>
-      <ImageWrapper>
+      <ImageWrapper onClick={redirectToProductPage}>
         <Image src={product.imageURL} alt={`${product.title} picture`} />
       </ImageWrapper>
 
       <Content>
-        <Title>{product.title}</Title>
+        <Title onClick={redirectToProductPage}>{product.title}</Title>
         <Description>{product.description}</Description>
         <Price>{`$${product.price}`}</Price>
         <ButtonWrapper>

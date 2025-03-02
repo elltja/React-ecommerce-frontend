@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { cartItem, cartState } from "../types/cart";
 import { Product } from "../types/products";
-import { calculateTotal } from "../utils/cart";
+import { calculateTotalPrice } from "../utils/cart";
 
 export const useCartStore = create<cartState>()(
   persist(
@@ -28,7 +28,7 @@ export const useCartStore = create<cartState>()(
             cart: updatedCart,
             quantity: state.totalQuantity + 1,
             totalQuantity: state.totalQuantity + 1,
-            totalPrice: calculateTotal(updatedCart),
+            totalPrice: calculateTotalPrice(updatedCart),
           };
         });
       },
@@ -54,7 +54,7 @@ export const useCartStore = create<cartState>()(
             cart: updatedCart,
             quantity: state.totalQuantity - 1,
             totalQuantity: state.totalQuantity - 1,
-            totalPrice: calculateTotal(updatedCart),
+            totalPrice: calculateTotalPrice(updatedCart),
           };
         });
       },
@@ -71,7 +71,7 @@ export const useCartStore = create<cartState>()(
             cart: updatedCart,
             quantity: state.totalQuantity - itemQuantity,
             totalQuantity: state.totalQuantity - itemQuantity,
-            totalPrice: calculateTotal(updatedCart),
+            totalPrice: calculateTotalPrice(updatedCart),
           };
         });
       },
