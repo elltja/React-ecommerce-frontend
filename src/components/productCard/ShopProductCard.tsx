@@ -21,31 +21,38 @@ export default function ProductCard({ product }: { product: Product }) {
     navigate(`/product/${product.id}`);
   }
 
+  function handleButtonClick(e: React.MouseEvent) {
+    e.stopPropagation();
+  }
+
   return (
-    <Container>
-      <ImageWrapper onClick={redirectToProductPage}>
+    <Container onClick={redirectToProductPage}>
+      <ImageWrapper>
         <Image src={product.imageURL} alt={`${product.title} picture`} />
       </ImageWrapper>
 
       <Content>
-        <Title onClick={redirectToProductPage}>{product.title}</Title>
+        <Title>{product.title}</Title>
         <Description>{product.description}</Description>
-        <Price>{`$${product.price}`}</Price>
+        <Price>${product.price}</Price>
         <ButtonWrapper>
           <Button
-            onClick={() =>
+            onClick={(event) => {
+              handleButtonClick(event);
               addItem({
                 title: product.title,
                 description: product.description,
                 price: product.price,
                 imageURL: product.imageURL,
                 id: product.id,
-              })
-            }
+              });
+            }}
           >
             Add to cart
           </Button>
-          <Button $primary>Buy now</Button>
+          <Button $primary onClick={handleButtonClick}>
+            Buy now
+          </Button>
         </ButtonWrapper>
       </Content>
     </Container>
