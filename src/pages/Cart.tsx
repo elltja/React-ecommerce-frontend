@@ -17,6 +17,17 @@ export default function Cart() {
       </div>
       <div>
         <h2>Order overview</h2>
+        <p>
+          $
+          {Math.round(
+            cart.reduce(
+              (accumulator: number, currentValue) =>
+                accumulator +
+                currentValue.product.price * currentValue.quantity,
+              0
+            ) * 100
+          ) / 100}
+        </p>
       </div>
     </Container>
   );

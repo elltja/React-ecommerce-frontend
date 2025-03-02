@@ -2,32 +2,33 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { cartItem, cartState } from "../types/cart";
 import { Product } from "../types/products";
+import { calculateTotal } from "../utils/cart";
 
 export const useCartStore = create<cartState>()(
   persist(
     (set) => ({
       cart: [],
-      quantity: 0,
+      totalQuantity: 0,
+      totalPrice: 0,
       addItem(payload: Product) {
         set((state: cartState) => {
           const existingProduct = state.cart.find(
             (item) => item.product.id === payload.id
           );
 
-          if (existingProduct) {
-            return {
-              cart: state.cart.map((item) =>
+          const updatedCart = existingProduct
+            ? state.cart.map((item) =>
                 item.product.id === payload.id
                   ? { ...item, quantity: item.quantity + 1 }
                   : item
-              ),
-              quantity: state.quantity + 1,
-            };
-          }
+              )
+            : [...state.cart, { product: payload, quantity: 1 }];
 
           return {
-            cart: [...state.cart, { product: payload, quantity: 1 }],
-            quantity: state.quantity + 1,
+            cart: updatedCart,
+            quantity: state.totalQuantity + 1,
+            totalQuantity: state.totalQuantity + 1,
+            totalPrice: calculateTotal(updatedCart),
           };
         });
       },
@@ -40,32 +41,37 @@ export const useCartStore = create<cartState>()(
 
           if (!existingProduct) return { cart: state.cart };
 
-          if (existingProduct?.quantity > 1) {
-            return {
-              cart: state.cart.map((item) =>
-                item.product.id === id
-                  ? { ...item, quantity: item.quantity - 1 }
-                  : item
-              ),
-              quantity: state.quantity - 1,
-            };
-          }
+          const updatedCart =
+            existingProduct?.quantity > 1
+              ? state.cart.map((item) =>
+                  item.product.id === id
+                    ? { ...item, quantity: item.quantity - 1 }
+                    : item
+                )
+              : state.cart.filter((item: cartItem) => item.product.id !== id);
 
           return {
-            cart: state.cart.filter((item: cartItem) => item.product.id !== id),
-            quantity: state.quantity - 1,
+            cart: updatedCart,
+            quantity: state.totalQuantity - 1,
+            totalQuantity: state.totalQuantity - 1,
+            totalPrice: calculateTotal(updatedCart),
           };
         });
       },
       clearItem(id: string) {
         set((state) => {
-          const itemQuantity = state.cart.find(
-            (item) => item.product.id === id
-          )?.quantity;
-          if (!itemQuantity) return state;
+          const itemQuantity =
+            state.cart.find((item) => item.product.id === id)?.quantity || 0;
+
+          const updatedCart = state.cart.filter(
+            (item) => item.product.id !== id
+          );
+
           return {
-            cart: state.cart.filter((item) => item.product.id !== id),
-            quantity: state.quantity - itemQuantity,
+            cart: updatedCart,
+            quantity: state.totalQuantity - itemQuantity,
+            totalQuantity: state.totalQuantity - itemQuantity,
+            totalPrice: calculateTotal(updatedCart),
           };
         });
       },

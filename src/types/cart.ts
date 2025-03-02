@@ -7,7 +7,7 @@ export type cartItem = {
 
 export type cartState = {
   cart: cartItem[];
-  quantity: number;
+  totalQuantity: number;
   addItem: (payload: Product) => void;
   removeItem: (id: string) => void;
   clearItem: (id: string) => void;
