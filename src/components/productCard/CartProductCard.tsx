@@ -1,3 +1,4 @@
+import assets from "../../assets/assets";
 import { useCartStore } from "../../store/cartStore";
 import { cartItem } from "../../types/cart";
 import {
@@ -11,10 +12,11 @@ import {
   CounterBtn,
   Price,
   Title,
+  TrashIcon,
 } from "./ProductCard.styles";
 
 export default function ProductCard({ cartItem }: { cartItem: cartItem }) {
-  const { addProduct, removeProduct } = useCartStore();
+  const { addItem, removeItem, clearItem } = useCartStore();
 
   return (
     <Container>
@@ -31,13 +33,13 @@ export default function ProductCard({ cartItem }: { cartItem: cartItem }) {
         <Price>{`$${cartItem.product.price}`}</Price>
         <ButtonWrapper>
           <Counter>
-            <CounterBtn onClick={() => removeProduct(cartItem.product.id)}>
+            <CounterBtn onClick={() => removeItem(cartItem.product.id)}>
               -
             </CounterBtn>
             <p>{cartItem.quantity}</p>
             <CounterBtn
               onClick={() =>
-                addProduct({
+                addItem({
                   title: cartItem.product.title,
                   description: cartItem.product.description,
                   price: cartItem.product.price,
@@ -49,6 +51,11 @@ export default function ProductCard({ cartItem }: { cartItem: cartItem }) {
               +
             </CounterBtn>
           </Counter>
+          <TrashIcon
+            src={assets.trash}
+            alt="Delete icon"
+            onClick={() => clearItem(cartItem.product.id)}
+          />
         </ButtonWrapper>
       </Content>
     </Container>

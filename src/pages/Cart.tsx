@@ -7,7 +7,7 @@ const Container = styled.div`
 `;
 
 export default function Cart() {
-  const { cart } = useCartStore();
+  const cart = useCartStore((state) => state.cart);
   return (
     <Container>
       <div>

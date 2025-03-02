@@ -65,8 +65,8 @@ export const ButtonWrapper = styled.div`
   display: flex;
   gap: 5px;
   width: 100%;
+  align-items: center;
 `;
-
 export const Counter = styled.div`
   display: flex;
   align-items: center;
@@ -77,4 +77,23 @@ export const CounterBtn = styled(Button)`
   padding-top: 2px;
   padding-bottom: 2px;
   height: fit-content;
+`;
+
+export const DeleteButton = styled(Button)`
+  height: 50px;
+  width: 50px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: red;
+`;
+
+export const TrashIcon = styled.img`
+  height: 20px;
+  width: 20px;
+  object-fit: contain;
+  color: red;
+  margin-left: 15px;
 `;

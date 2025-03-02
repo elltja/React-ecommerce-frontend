@@ -8,7 +8,7 @@ export const useCartStore = create<cartState>()(
     (set) => ({
       cart: [],
       quantity: 0,
-      addProduct(payload: Product) {
+      addItem(payload: Product) {
         set((state: cartState) => {
           const existingProduct = state.cart.find(
             (item) => item.product.id === payload.id
@@ -32,7 +32,7 @@ export const useCartStore = create<cartState>()(
         });
       },
 
-      removeProduct(id: string) {
+      removeItem(id: string) {
         set((state: cartState) => {
           const existingProduct = state.cart.find(
             (item: cartItem) => item.product.id === id
@@ -54,6 +54,18 @@ export const useCartStore = create<cartState>()(
           return {
             cart: state.cart.filter((item: cartItem) => item.product.id !== id),
             quantity: state.quantity - 1,
+          };
+        });
+      },
+      clearItem(id: string) {
+        set((state) => {
+          const itemQuantity = state.cart.find(
+            (item) => item.product.id === id
+          )?.quantity;
+          if (!itemQuantity) return state;
+          return {
+            cart: state.cart.filter((item) => item.product.id !== id),
+            quantity: state.quantity - itemQuantity,
           };
         });
       },

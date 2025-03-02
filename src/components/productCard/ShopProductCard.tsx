@@ -13,7 +13,7 @@ import {
 } from "./ProductCard.styles";
 
 export default function ProductCard({ product }: { product: Product }) {
-  const addProduct = useCartStore((state) => state.addProduct);
+  const addItem = useCartStore((state) => state.addItem);
 
   return (
     <Container>
@@ -28,7 +28,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <ButtonWrapper>
           <Button
             onClick={() =>
-              addProduct({
+              addItem({
                 title: product.title,
                 description: product.description,
                 price: product.price,
