@@ -11,6 +11,7 @@ export default function useProducts() {
       setLoading(true);
       try {
         const res = await fetch("/products.json", {
+          // TODO: Build a backend and delete mack data
           method: "GET",
         });
         if (!res.ok) {

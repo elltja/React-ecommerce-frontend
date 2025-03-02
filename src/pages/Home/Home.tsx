@@ -1,4 +1,4 @@
-import ProductCard from "../../components/productCard/ShopProductCard";
+import ProductCard from "../../components/ProductCard/ShopProductCard";
 import { Product } from "../../types/products";
 import { CategoryTitle, Container, ProductWrapper } from "./Home.styles";
 import useProducts from "../../hooks/useProducts";

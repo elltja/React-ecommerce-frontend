@@ -1,8 +1,9 @@
 import { useCartStore } from "../../store/cartStore";
-import CartProductCard from "../../components/productCard/CartProductCard";
+import CartProductCard from "../../components/ProductCard/CartProductCard";
 import {
   Container,
   ContentWrapper,
+  ProductWrapper,
   StyledButton,
   Table,
   TableRow,
@@ -16,12 +17,12 @@ export default function Cart() {
   return (
     <Container>
       <ContentWrapper>
-        <div style={{ width: 500 }}>
+        <ProductWrapper style={{ width: 500 }}>
           {cart.length > 0 &&
             cart.map((item, index) => {
               return <CartProductCard cartItem={item} key={index} />;
             })}
-        </div>
+        </ProductWrapper>
         <div>
           <h2>Order overview</h2>
           <Table>

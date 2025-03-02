@@ -13,6 +13,10 @@ export const ContentWrapper = styled.div`
   gap: 50px;
 `;
 
+export const ProductWrapper = styled.div`
+  width: 500px;
+`;
+
 export const Table = styled.div``;
 
 export const TableRow = styled.div`

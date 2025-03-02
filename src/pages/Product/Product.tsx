@@ -15,6 +15,7 @@ import {
   TableValue,
   Title,
   Image,
+  ImageWrapper,
   StyledButton,
 } from "./Product.styles";
 
@@ -26,7 +27,9 @@ export default function Product() {
 
   return (
     <Container>
-      <Image src={product?.imageURL} alt={`${product?.title} image`} />
+      <ImageWrapper>
+        <Image src={product?.imageURL} alt={`${product?.title} image`} />
+      </ImageWrapper>
       <InfoWrapper>
         <Title>{product?.title}</Title>
         <Description>{product?.description}</Description>

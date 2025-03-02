@@ -10,10 +10,20 @@ export const Container = styled.div`
   padding: 5vw 2vw;
 `;
 
-export const Image = styled.img`
-  background-color: #f7f7f7;
+export const ImageWrapper = styled.div`
+  background-color: #ebebeb;
   max-height: 500px;
-  border-radius: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+`;
+
+export const Image = styled.img`
+  background-color: #ebebeb;
+  height: 100%;
+  transition: all 0.2s;
+  &:hover {
+    transform: scale(1.02);
+  }
 `;
 
 export const InfoWrapper = styled.div`
