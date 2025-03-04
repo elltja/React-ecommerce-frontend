@@ -11,5 +11,4 @@ export type cartState = {
   totalPrice: number;
   addItem: (payload: Product) => void;
   removeItem: (id: string) => void;
-  clearItem: (id: string) => void;
 };

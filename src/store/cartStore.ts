@@ -58,23 +58,6 @@ export const useCartStore = create<cartState>()(
           };
         });
       },
-      clearItem(id: string) {
-        set((state) => {
-          const itemQuantity =
-            state.cart.find((item) => item.product.id === id)?.quantity || 0;
-
-          const updatedCart = state.cart.filter(
-            (item) => item.product.id !== id
-          );
-
-          return {
-            cart: updatedCart,
-            quantity: state.totalQuantity - itemQuantity,
-            totalQuantity: state.totalQuantity - itemQuantity,
-            totalPrice: calculateTotalPrice(updatedCart),
-          };
-        });
-      },
     }),
 
     { name: "cart-storage" }
