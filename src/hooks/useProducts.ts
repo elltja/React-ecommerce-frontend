@@ -10,10 +10,12 @@ export default function useProducts() {
     async function fetchProducts() {
       setLoading(true);
       try {
-        const res = await fetch("/products.json", {
-          // TODO: Build a backend and delete mock data
-          method: "GET",
-        });
+        const res = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/products`,
+          {
+            method: "GET",
+          }
+        );
         if (!res.ok) {
           throw new Error("Network response was not ok");
         }

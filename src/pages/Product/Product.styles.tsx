@@ -38,6 +38,10 @@ export const Title = styled.h1`
   width: fit-content;
 `;
 
+export const StarIcon = styled.img`
+  width: 20px;
+`;
+
 export const Description = styled.p`
   margin: 0;
   line-height: 160%;

@@ -3,29 +3,12 @@ import ProductCard from "../../components/ProductCard/ShopProductCard";
 import ProductFilter from "../../components/ProductFilter";
 import useProducts from "../../hooks/useProducts";
 import { MultiValue } from "react-select";
-import styled from "styled-components";
-
-const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
-  background-color: var(--background);
-  display: flex;
-  flex-direction: column;
-  padding: 50px;
-`;
-
-const ContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-`;
-
-const ProductWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  width: fit-content;
-  gap: 20px;
-`;
+import {
+  Container,
+  ContentWrapper,
+  ProductWrapper,
+  Title,
+} from "./Shop.styles";
 
 export default function Shop() {
   const [filter, setFilter] = useState<MultiValue<{
@@ -45,8 +28,9 @@ export default function Shop() {
   return (
     <Container>
       <ContentWrapper>
+        <Title>All Products</Title>
         <div>
-          <h3>Filters</h3>
+          <h4>Filters</h4>
           <ProductFilter handleChange={(newValue) => setFilter(newValue)} />
         </div>
         <ProductWrapper>
