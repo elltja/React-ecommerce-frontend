@@ -4,4 +4,5 @@ export type Product = {
   price: number;
   imageURL: string;
   id: string;
+  category: "phone" | "laptop" | "headphones";
 };

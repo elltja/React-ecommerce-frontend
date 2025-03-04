@@ -10,10 +10,11 @@ import {
   TableTag,
   TableValue,
 } from "./Cart.styles";
+import { useNavigate } from "react-router";
 
 export default function Cart() {
   const { cart, totalPrice } = useCartStore();
-
+  const navigate = useNavigate();
   return (
     <Container>
       <ContentWrapper>
@@ -41,7 +42,9 @@ export default function Cart() {
             </TableRow>
           </Table>
 
-          <StyledButton $primary>Checkout</StyledButton>
+          <StyledButton $primary onClick={() => navigate("/checkout")}>
+            Checkout
+          </StyledButton>
         </div>
       </ContentWrapper>
     </Container>

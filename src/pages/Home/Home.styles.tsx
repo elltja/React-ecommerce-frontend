@@ -13,6 +13,7 @@ export const ProductWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: fit-content;
+  gap: 20px;
 `;
 
 export const CategoryTitle = styled.h2`

@@ -4,55 +4,31 @@
         "description": "The ASUS ROG Zephyrus G16 gaming laptop is powered by the Intel Core i9 processor and features an RTX 4070 GPU, delivering top-tier gaming and performance. With 16GB of RAM and a 1TB SSD, this laptop is designed for gamers who demand extreme power, speed, and storage. Equipped with a stunning 16-inch display, it's built to handle the most demanding titles and applications with ease.",
         "imageURL": "/sample-product.webp",
         "price": 10.95,
-        "id": "3f5c3b4e-1d2a-4b7e-bb88-8e2f9f3d5a77"
+        "id": "3f5c3b4e-1d2a-4b7e-bb88-8e2f9f3d5a77",
+        "category": "laptop"
     },
     {
         "title": "Samsung Galaxy S23",
         "description": "The Samsung Galaxy S23 offers an all-encompassing mobile experience with its advanced AMOLED display, offering vibrant visuals and smooth interactions. Equipped with top-of-the-line fitness tracking features and cutting-edge technology, this phone delivers outstanding performance. With powerful hardware, a sleek design, and long battery life, the S23 is perfect for those who demand the best in mobile innovation.",
         "imageURL": "/sample-product-2.webp",
         "price": 10.95,
-        "id": "9a8d6b1f-5c7d-4e3a-91b2-6d4f7e8a1c55"
+        "id": "9a8d6b1f-5c7d-4e3a-91b2-6d4f7e8a1c55",
+        "category": "phone"
     },
     {
         "title": "MacBook Pro 16",
         "description": "The MacBook Pro 16, powered by Apple's M2 Pro chip, offers outstanding performance with 16GB RAM and a 512GB SSD. Whether you're editing high-resolution video, developing software, or multitasking with ease, this laptop can handle the toughest tasks. It features a stunning Retina display with True Tone technology, making it a top choice for professionals in creative industries or anyone who demands premium performance in a portable form.",
         "imageURL": "/sample-product-3.webp",
         "price": 10.95,
-        "id": "e2c9a3b4-6d7e-4f8a-b9a2-5d1c3f4e7b88"
+        "id": "e2c9a3b4-6d7e-4f8a-b9a2-5d1c3f4e7b88",
+        "category": "laptop"
     },
     {
         "title": "Apple AirPods Pro 2nd gen",
         "description": "Apple AirPods Pro (2nd Gen) with MagSafe Case (USB-C) provide excellent sound, active noise cancellation, and a comfortable fit. The USB-C case ensures quick charging, and they pair seamlessly with Apple devices for an effortless audio experience.",
         "imageURL": "/headphones.webp",
         "price": 10.95,
-        "id": "a1b2c3d4-e5f6-7g8h-9i10-j11k12l13m14"
-    },
-    {
-        "title": "ASUS ROG Zephyrus G16",
-        "description": "The ASUS ROG Zephyrus G16 gaming laptop is powered by the Intel Core i9 processor and features an RTX 4070 GPU, delivering top-tier gaming and performance. With 16GB of RAM and a 1TB SSD, this laptop is designed for gamers who demand extreme power, speed, and storage. Equipped with a stunning 16-inch display, it's built to handle the most demanding titles and applications with ease.",
-        "imageURL": "/sample-product.webp",
-        "price": 10.95,
-        "id": "3f5c3b4e-1d2a-4b7e-bb88-8e2f9f3d5a77"
-    },
-    {
-        "title": "Samsung Galaxy S23",
-        "description": "The Samsung Galaxy S23 offers an all-encompassing mobile experience with its advanced AMOLED display, offering vibrant visuals and smooth interactions. Equipped with top-of-the-line fitness tracking features and cutting-edge technology, this phone delivers outstanding performance. With powerful hardware, a sleek design, and long battery life, the S23 is perfect for those who demand the best in mobile innovation.",
-        "imageURL": "/sample-product-2.webp",
-        "price": 10.95,
-        "id": "9a8d6b1f-5c7d-4e3a-91b2-6d4f7e8a1c55"
-    },
-    {
-        "title": "MacBook Pro 16",
-        "description": "The MacBook Pro 16, powered by Apple's M2 Pro chip, offers outstanding performance with 16GB RAM and a 512GB SSD. Whether you're editing high-resolution video, developing software, or multitasking with ease, this laptop can handle the toughest tasks. It features a stunning Retina display with True Tone technology, making it a top choice for professionals in creative industries or anyone who demands premium performance in a portable form.",
-        "imageURL": "/sample-product-3.webp",
-        "price": 10.95,
-        "id": "e2c9a3b4-6d7e-4f8a-b9a2-5d1c3f4e7b88"
-    },
-    {
-        "title": "Apple AirPods Pro 2nd gen",
-        "description": "Apple AirPods Pro (2nd Gen) with MagSafe Case (USB-C) provide excellent sound, active noise cancellation, and a comfortable fit. The USB-C case ensures quick charging, and they pair seamlessly with Apple devices for an effortless audio experience.",
-        "imageURL": "/headphones.webp",
-        "price": 10.95,
-        "id": "a1b2c3d4-e5f6-7g8h-9i10-j11k12l13m14"
+        "id": "a1b2c3d4-e5f6-7g8h-9i10-j11k12l13m14",
+        "category": "headphones"
     }
 ]

@@ -15,6 +15,9 @@ export const ContentWrapper = styled.div`
 
 export const ProductWrapper = styled.div`
   width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 `;
 
 export const Table = styled.div``;
