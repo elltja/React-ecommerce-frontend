@@ -66,6 +66,7 @@ export default function ProductCard({ cartItem }: { cartItem: cartItem }) {
                   price: cartItem.product.price,
                   imageURL: cartItem.product.imageURL,
                   id: cartItem.product.id,
+                  category: cartItem.product.category,
                 });
               }}
             >

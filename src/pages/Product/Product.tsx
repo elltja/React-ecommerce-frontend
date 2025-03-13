@@ -17,7 +17,7 @@ import {
   Image,
   ImageWrapper,
   StyledButton,
-  // StarIcon,
+  StarIcon,
 } from "./Product.styles";
 
 export default function Product() {
@@ -33,7 +33,7 @@ export default function Product() {
       </ImageWrapper>
       <InfoWrapper>
         <Title>{product?.title}</Title>
-        {/* <div
+        <div
           style={{
             display: "flex",
             gap: 1,
@@ -46,8 +46,8 @@ export default function Product() {
           <StarIcon src="/reviewStar.png" alt="" />
           <StarIcon src="/reviewStar.png" alt="" />
           <StarIcon src="/reviewStar.png" alt="" />
-          (4.5)
-        </div> */}
+          <p style={{ margin: 0, marginLeft: 5 }}>(4.5)</p>
+        </div>
         <Description>{product?.description}</Description>
         <Price>${product?.price}</Price>
         <Divider />

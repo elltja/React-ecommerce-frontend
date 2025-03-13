@@ -20,6 +20,21 @@ export const Title = styled.h1`
   margin: 0;
 `;
 
+export const FiltersWrapper = styled.div`
+  display: flex;
+  gap: 20px;
+`;
+
+export const FilterBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`;
+
+export const FilterLabel = styled.label`
+  font-weight: 500;
+`;
+
 export const ProductWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;

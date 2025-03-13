@@ -45,6 +45,7 @@ export default function ProductCard({ product }: { product: Product }) {
                 price: product.price,
                 imageURL: product.imageURL,
                 id: product.id,
+                category: product.category,
               });
             }}
           >
